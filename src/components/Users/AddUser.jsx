@@ -2,25 +2,21 @@ import React, { useState } from "react";
 
 import Card from "../UI/Card";
 import Button from "../UI/Button";
-
 import classes from "./AddUser.module.scss";
 
-const AddUser = (props) => {
-	const [enteredUsername, setEnteredUsername] = useState(" ");
-	const [enteredAge, setEnteredAge] = useState(" ");
+const AddUser = ({ onAddUser }) => {
+	const [enteredUsername, setEnteredUsername] = useState("");
+	const [enteredAge, setEnteredAge] = useState("");
 
 	const addUserHandler = (event) => {
 		event.preventDefault();
-
 		if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
 			return;
 		}
-
 		if (+enteredAge < 1) {
 			return;
 		}
-
-		console.log(enteredUsername, enteredAge);
+		onAddUser(enteredUsername, enteredAge);
 		setEnteredUsername("");
 		setEnteredAge("");
 	};

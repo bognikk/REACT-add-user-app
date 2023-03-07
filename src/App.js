@@ -18,7 +18,7 @@ function App() {
 	return (
 		<div>
 			<AddUser onAddUser={addUserHandlerInAppFunction} />
-			<UsersList usersProp={usersList} />
+			{usersList.length && <UsersList usersProp={usersList} />}
 		</div>
 	);
 }

@@ -4,10 +4,10 @@ import Card from "./Card";
 import Button from "./Button";
 import classes from "./ErrorModal.module.scss";
 
-const ErrorModal = ({ titleProp, messageProp }) => {
+const ErrorModal = ({ titleProp, messageProp, onConfirm }) => {
 	return (
 		<>
-			<div className={classes.backdrop}></div>
+			<div className={classes.backdrop} onClick={onConfirm}></div>
 			<Card className={classes.modal}>
 				<header className={classes.header}>
 					<h2>{titleProp}</h2>
@@ -16,7 +16,7 @@ const ErrorModal = ({ titleProp, messageProp }) => {
 					<p>{messageProp}</p>
 				</div>
 				<footer className={classes.actions}>
-					<Button>Okay</Button>
+					<Button onClickProp={onConfirm}>Okay</Button>
 				</footer>
 			</Card>
 		</>

@@ -16,10 +16,10 @@ function App() {
 	};
 
 	return (
-		<div>
+		<>
 			<AddUser onAddUser={addUserHandlerInAppFunction} />
 			{usersList.length && <UsersList usersProp={usersList} />}
-		</div>
+		</>
 	);
 }
 
